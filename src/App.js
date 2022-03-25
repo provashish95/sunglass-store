@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
+import SingleProduct from './components/SingleProduct/SingleProduct';
 
 
 
@@ -11,6 +12,7 @@ function App() {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [singleProduct, setSingleProduct] = useState([]);
 
   useEffect(() => {
     fetch('products.json')
@@ -23,13 +25,22 @@ function App() {
     setCart(newCart);
   }
 
-  //console.log(cart);
+  const test = (cart) => {
+    if (cart.length == 0) {
+      alert('please add to cart');
+      return;
+    } else {
+      const randomNumber = Math.floor((Math.random() * 4));
+      setSingleProduct(cart[randomNumber]);
+    }
 
-  //console.log(products);
+  }
+
 
   return (
     <div className="App">
       <Header></Header>
+      <SingleProduct singleProduct={singleProduct}></SingleProduct>
       <div className="container">
         <div className="row mt-5 d-flex justify-content-end">
           <div className="col-12 col-md-8  order-2 order-md-1">
@@ -45,8 +56,7 @@ function App() {
                 {
                   cart.map(item => <Cart key={item.id} item={item}></Cart>)
                 }
-                <button className="btn cart-button">Choose 1 for me</button>
-                <button className="btn cart-button">Choose again</button>
+                <button onClick={() => test(cart)}>test</button>
               </div>
             </div>
           </div>
