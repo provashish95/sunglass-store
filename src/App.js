@@ -20,22 +20,24 @@ function App() {
       .then(data => setProducts(data))
   }, []);
 
+  const deleteCartProduct = () => {
+    setCart([]);
+    setSingleProduct([]);
+  }
   const handleAddToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
   }
 
-  const test = (cart) => {
-    if (cart.length == 0) {
+  const selectSingleProduct = (cart) => {
+    if (cart.length === 0) {
       alert('please add to cart');
       return;
     } else {
       const randomNumber = Math.floor((Math.random() * 4));
       setSingleProduct(cart[randomNumber]);
     }
-
   }
-
 
   return (
     <div className="App">
@@ -56,7 +58,8 @@ function App() {
                 {
                   cart.map(item => <Cart key={item.id} item={item}></Cart>)
                 }
-                <button onClick={() => test(cart)}>test</button>
+                <button onClick={() => selectSingleProduct(cart)}>test</button>
+                <button onClick={deleteCartProduct}>Choose again</button>
               </div>
             </div>
           </div>
