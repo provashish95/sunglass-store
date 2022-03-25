@@ -1,17 +1,18 @@
 import React from 'react';
 import './Product.css';
+import { BsFillCartCheckFill } from 'react-icons/bs';
 
 const Product = (props) => {
     const { id, name, picture, price } = props.product;
     return (
-        <div className="col-12 col-md-4">
-            <div class="card" style={{ width: '15rem' }}>
-                <img src={picture} class="card-img-top" alt="img" />
-                <div class="card-body">
-                    <h5 class="card-title">{name}</h5>
-                    <p class="card-text">Price: $ {price}</p>
+        <div className="col-12 col-md-4 d-flex justify-content-center">
+            <div className="card shadow-lg p-3 mb-3 bg-body rounded">
+                <img src={picture} className="card-img-top" alt="img" />
+                <div className="card-body">
+                    <h5 className="card-title">{name}</h5>
+                    <p className="card-text">Price: $ {price}</p>
                     <p>ID: {id}</p>
-                    <button className="btn btn-primary">Add to cart</button>
+                    <button className="btn btn-primary">Add to cart <BsFillCartCheckFill></BsFillCartCheckFill></button>
                 </div>
             </div>
         </div>

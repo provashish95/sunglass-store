@@ -22,7 +22,7 @@ function App() {
       <div className="container">
         <div className="row mt-5 d-flex justify-content-end">
           <div className="col-12 col-md-8  order-2 order-md-1">
-            <div className="row g-4">
+            <div className="row g-4 ">
               {
                 products.map(product => <Product key={product.id} product={product}></Product>)
               }

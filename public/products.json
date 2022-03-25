@@ -15,7 +15,7 @@
         "id": 3,
         "picture": "https://img.freepik.com/free-photo/vacation-glasses-optical-protection-sun_1172-365.jpg?size=626&ext=jpg&ga=GA1.1.247539301.1642058125",
         "price": 20,
-        "name": "Cabrera Hammond"
+        "name": "Cabrera Hammo"
     },
     {
         "id": 4,
@@ -49,6 +49,18 @@
     },
     {
         "id": 9,
+        "picture": "https://img.freepik.com/free-photo/vacation-glasses-optical-protection-sun_1172-365.jpg?size=626&ext=jpg&ga=GA1.1.247539301.1642058125",
+        "price": 26,
+        "name": "Jean Horn"
+    },
+    {
+        "id": 10,
+        "picture": "https://img.freepik.com/free-photo/vacation-glasses-optical-protection-sun_1172-365.jpg?size=626&ext=jpg&ga=GA1.1.247539301.1642058125",
+        "price": 26,
+        "name": "Jean Horn"
+    },
+    {
+        "id": 11,
         "picture": "https://img.freepik.com/free-photo/vacation-glasses-optical-protection-sun_1172-365.jpg?size=626&ext=jpg&ga=GA1.1.247539301.1642058125",
         "price": 26,
         "name": "Jean Horn"
