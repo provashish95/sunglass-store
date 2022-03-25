@@ -1,3 +1,8 @@
 body{
   font-family: "Roboto", sans-serif;
 }
+.cart-button{
+  background-color:  #5d65ff;
+  color: #fff;
+  margin-left: 10px;
+}
