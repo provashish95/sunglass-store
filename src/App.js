@@ -5,6 +5,7 @@ import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
 import SingleProduct from './components/SingleProduct/SingleProduct';
 import { BiReset, BiSelectMultiple } from 'react-icons/bi';
+import Description from './components/Description/Description';
 
 
 function App() {
@@ -56,8 +57,6 @@ function App() {
   }
 
 
-
-
   return (
     <div className="App">
       <Header></Header>
@@ -90,7 +89,11 @@ function App() {
           </div>
         </div>
       </div>
-    </div >
+
+      <div className="container">
+        <Description></Description>
+      </div>
+    </div>
   );
 }
 
