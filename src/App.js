@@ -78,6 +78,7 @@ function App() {
           </div>
           <div className="col-12 col-md-4  order-1 order-md-2">
             <div className="card shadow-lg p-3 mb-3 bg-body rounded text-center">
+              <h4>Selected Glass</h4>
               <div className="card-body">
                 {
                   cart.map(item => <Cart key={item.id} item={item} deleteItem={deleteItem}></Cart>)
