@@ -1,4 +1,3 @@
-
 import './App.css';
 import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
@@ -8,17 +7,11 @@ import SingleProduct from './components/SingleProduct/SingleProduct';
 import { BiReset, BiSelectMultiple } from 'react-icons/bi';
 
 
-
-
-
 function App() {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [singleProduct, setSingleProduct] = useState([]);
-
-
-
+  const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
     fetch('products.json')
@@ -52,6 +45,11 @@ function App() {
     }
   }
 
+  const deleteItem = (deleteId) => {
+    const newItems = cart.filter(cartItem => cartItem.id !== deleteId);
+    setCart(newItems);
+  }
+
   const deleteCartProduct = () => {
     setCart([]);
     setSingleProduct([]);
@@ -59,11 +57,16 @@ function App() {
 
 
 
+
   return (
     <div className="App">
       <Header></Header>
+      {
+        Object.keys(singleProduct).length !== 0 && (
+          <SingleProduct singleProduct={singleProduct}></SingleProduct>
+        )
+      }
 
-      <SingleProduct singleProduct={singleProduct}></SingleProduct>
       <div className="container">
         <div className="row mt-5 d-flex justify-content-end">
           <div className="col-12 col-md-8  order-2 order-md-1">
@@ -77,7 +80,7 @@ function App() {
             <div className="card shadow-lg p-3 mb-3 bg-body rounded text-center">
               <div className="card-body">
                 {
-                  cart.map(item => <Cart key={item.id} item={item}></Cart>)
+                  cart.map(item => <Cart key={item.id} item={item} deleteItem={deleteItem}></Cart>)
                 }
                 <button className="btn cart-button " onClick={() => selectSingleProduct(cart)}><BiSelectMultiple className="cart-icon "></BiSelectMultiple>Choose 1 for me</button>
                 <button className="btn cart-button" onClick={deleteCartProduct}><BiReset className="cart-icon"></BiReset> Reset </button>
