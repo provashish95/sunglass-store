@@ -1,0 +1,17 @@
+.delete-btn{
+    background-color: #5d65ff;
+    color: #fff;
+    margin-left: 15px;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.delete-btn-icon{
+    font-size: 20px;
+}
+.cart-img{
+    width: 42px;
+    border: 2px solid #5d65ff;
+    border-radius: 50%;
+    margin-right: 11px;
+}

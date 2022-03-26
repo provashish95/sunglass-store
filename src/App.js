@@ -5,6 +5,9 @@ import Header from './components/Header/Header';
 import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
 import SingleProduct from './components/SingleProduct/SingleProduct';
+import { BiReset, BiSelectMultiple } from 'react-icons/bi';
+
+
 
 
 
@@ -13,6 +16,9 @@ function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [singleProduct, setSingleProduct] = useState([]);
+
+
+
 
   useEffect(() => {
     fetch('products.json')
@@ -24,6 +30,7 @@ function App() {
   const handleAddToCart = (selectedProduct) => {
     const existedProduct = cart.find(product => product.id === selectedProduct.id);
     if (existedProduct) {
+
       alert("Same Product Not Added");
       return;
     } else if (cart.length === 4) {
@@ -50,9 +57,12 @@ function App() {
     setSingleProduct([]);
   }
 
+
+
   return (
     <div className="App">
       <Header></Header>
+
       <SingleProduct singleProduct={singleProduct}></SingleProduct>
       <div className="container">
         <div className="row mt-5 d-flex justify-content-end">
@@ -69,8 +79,8 @@ function App() {
                 {
                   cart.map(item => <Cart key={item.id} item={item}></Cart>)
                 }
-                <button onClick={() => selectSingleProduct(cart)}>test</button>
-                <button onClick={deleteCartProduct}>Choose again</button>
+                <button className="btn cart-button " onClick={() => selectSingleProduct(cart)}><BiSelectMultiple className="cart-icon "></BiSelectMultiple>Choose 1 for me</button>
+                <button className="btn cart-button" onClick={deleteCartProduct}><BiReset className="cart-icon"></BiReset> Reset </button>
               </div>
             </div>
           </div>
