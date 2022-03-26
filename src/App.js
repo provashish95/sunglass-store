@@ -20,23 +20,34 @@ function App() {
       .then(data => setProducts(data))
   }, []);
 
-  const deleteCartProduct = () => {
-    setCart([]);
-    setSingleProduct([]);
-  }
-  const handleAddToCart = (product) => {
-    const newCart = [...cart, product];
-    setCart(newCart);
+
+  const handleAddToCart = (selectedProduct) => {
+    const existedProduct = cart.find(product => product.id === selectedProduct.id);
+    if (existedProduct) {
+      alert("Same Product Not Added");
+      return;
+    } else if (cart.length === 4) {
+      alert("You Select Maximum 4 Items");
+      return;
+    } else {
+      const newCart = [...cart, selectedProduct];
+      setCart(newCart);
+    }
   }
 
   const selectSingleProduct = (cart) => {
     if (cart.length === 0) {
-      alert('please add to cart');
+      alert('Please Add to Cart');
       return;
     } else {
-      const randomNumber = Math.floor((Math.random() * 4));
+      const randomNumber = Math.floor((Math.random() * cart.length));
       setSingleProduct(cart[randomNumber]);
     }
+  }
+
+  const deleteCartProduct = () => {
+    setCart([]);
+    setSingleProduct([]);
   }
 
   return (
