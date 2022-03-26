@@ -13,7 +13,6 @@ const Product = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">Price: $ {price}</p>
-                    <p>ID: {id}</p>
                     <button onClick={() => handleAddToCart(props.product)} className="btn cart-btn">Add to Cart <BsFillCartCheckFill className="btn-icon"></BsFillCartCheckFill></button>
                 </div>
             </div>
